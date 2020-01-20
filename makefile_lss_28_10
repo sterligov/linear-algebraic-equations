@@ -1,0 +1,18 @@
+CC=gcc
+CFLAGS=-c
+OPTIMIZATION=-O3
+EXECUTABLE=lss
+
+all: $(EXECUTABLE)
+
+$(EXECUTABLE): main_lss_28_10.o lss_28_10.o 
+	$(CC) $(OPTIMIZATION) main_lss_28_10.o lss_28_10.o lss_28_10.h -o lss -lm
+
+lss_28_10.o: lss_28_10.c
+	$(CC) $(CFLAGS) lss_28_10.c
+	
+main_lss_28_10.o: main_lss_28_10.c
+	$(CC) $(CFLAGS) main_lss_28_10.c
+	
+clean:
+	rm  -rf *.o $(EXECUTABLE)
